@@ -3,7 +3,7 @@
 
 <head>
 
-<title>Leonel Cepeda | Portfolio Audiovisual</title>
+<title>Leonel Cepeda Portfolio</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,53 +11,128 @@
 
 body{
 margin:0;
-background:black;
 color:white;
-font-family:Arial;
+font-family:Courier New;
+overflow-x:hidden;
+background:black;
 }
 
-.header{
-height:100vh;
+/* FONDO GALAXIA */
+
+.space{
+
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+
+background-image:url("https://usagif.com/wp-content/uploads/gif/outerspace-15.gif");
+
+background-size:cover;
+
+}
+
+
+/* LOADING */
+
+.loader{
+
+position:fixed;
+
+width:100%;
+
+height:100%;
+
+background:black;
+
 display:flex;
+
 flex-direction:column;
+
 justify-content:center;
+
 align-items:center;
-text-align:center;
+
+z-index:10;
+
 }
 
-h1{
+
+.bolt{
+
 font-size:60px;
-margin:0;
+
+animation:blink 1s infinite;
+
 }
 
-h2{
-margin-top:50px;
-text-align:center;
+@keyframes blink{
+
+0%{opacity:0.2;}
+
+50%{opacity:1;}
+
+100%{opacity:0.2;}
+
 }
+
+
+
+/* INTRO TEXTO */
+
+.intro{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+font-size:28px;
+
+}
+
+
+/* SECCION */
 
 .section{
-width:80%;
+
+width:70%;
+
 margin:auto;
-margin-top:50px;
+
+margin-top:100px;
+
+text-align:center;
+
 }
 
-.video{
-margin-top:30px;
-}
+/* VIDEO */
 
 iframe{
+
+width:100%;
+
+height:500px;
+
+border:none;
+
 border-radius:10px;
+
 }
 
-.contacto{
-text-align:center;
-margin-top:80px;
-margin-bottom:80px;
-}
+img{
 
-a{
-color:white;
-text-decoration:none;
+width:60%;
+
+border-radius:10px;
+
+margin-top:20px;
+
 }
 
 </style>
@@ -65,58 +140,153 @@ text-decoration:none;
 </head>
 
 
+
 <body>
 
-<div class="header">
 
-<h1>Leonel Cepeda</h1>
 
-<p>Comunicador Audiovisual</p>
+<div class="space"></div>
 
-<p>Producción | Cámara | Edición</p>
+
+
+<div class="loader" id="loader">
+
+<div class="bolt">⚡</div>
+
+<p>Cargando...</p>
 
 </div>
+
+
+
+<div id="content" style="display:none">
+
+
+
+<div class="intro">
+
+<div id="typing"></div>
+
+</div>
+
 
 
 
 <div class="section">
 
-<h2>REEL</h2>
+<h1>REVELACIÓN</h1>
 
-<p style="text-align:center">
+<p>
 
-Aquí irá tu reel principal
+Director de Arte
 
 </p>
+
+
+<p>
+
+Cortometraje con premios internacionales
+
+</p>
+
+
+<p>
+
+Mejor Guión
+
+Festival Internacional de Cine Fin del Mundo Ushuaia 2025
+
+</p>
+
+<p>
+
+Best Debut Short Film
+
+Kollywood 2025
+
+</p>
+
+
+<img src="AQUIVAIMAGEN.jpg">
+
+
+<br><br>
+
+
+<iframe
+
+src="AQUIVAIVIDEO">
+
+</iframe>
+
 
 </div>
 
 
 
-<div class="contacto">
-
-<h2>CONTACTO</h2>
-
-<p>
-
-Email: leocepe16@gmail.com
-
-</p>
-
-<p>
-
-LinkedIn:
-<br>
-
-<a href="https://www.linkedin.com/in/leonel-esteban-cepeda-campana-20206a282">
-
-Ver perfil
-
-</a>
-
-</p>
-
 </div>
+
+
+
+
+<script>
+
+
+
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+document.getElementById("content").style.display="block";
+
+startTyping();
+
+},3000);
+
+
+
+var text="Bienvenido a mi portafolio, buen viaje astronauta...";
+
+var i=0;
+
+
+
+function startTyping(){
+
+var audio = new Audio("https://www.soundjay.com/mechanical/typewriter-1.mp3");
+
+var speed=60;
+
+
+
+function typeWriter(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML+=text.charAt(i);
+
+audio.play();
+
+i++;
+
+setTimeout(typeWriter,speed);
+
+}
+
+}
+
+
+
+typeWriter();
+
+
+
+}
+
+
+
+</script>
+
 
 
 </body>
